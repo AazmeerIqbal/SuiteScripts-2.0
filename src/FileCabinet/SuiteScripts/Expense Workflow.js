@@ -26,7 +26,7 @@ define(["N/record", "N/runtime"], /**
       sublistId: "expense",
     });
 
-    var empId = expRegRecord.getValue({
+    var empId = expReg.getValue({
       fieldId: "entity",
     });
 
@@ -37,19 +37,19 @@ define(["N/record", "N/runtime"], /**
       "Expense Count: " +
       expenseCount;
 
-    var epmloyee = record.load({
+    var employee = record.load({
       type: record.Type.EMPLOYEE,
       id: empId,
     });
 
-    epmloyee.setValue({
+    employee.setValue({
       fieldId: "comments",
       notes,
     });
 
-    epmloyee.save();
+    employee.save();
 
-    if (!epmloyee) {
+    if (!employee) {
       return "failed";
     }
     return "success " + empId;
